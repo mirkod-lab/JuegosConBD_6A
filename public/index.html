@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f5f0">
+  <title>Usuarios | Juegos 6A</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Juegos 6A, inicio">
+      <span class="brand-mark" aria-hidden="true">6A</span>
+      <span>Juegos <span class="brand-muted">/ Datos</span></span>
+    </a>
+    <span class="connection-label"><span class="status-dot"></span> Panel de usuarios</span>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-heading" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Base de datos · juegos_6A</p>
+        <h1 id="page-title">Usuarios</h1>
+        <p class="page-description">Administra los registros de la tabla <code>usuarios</code>.</p>
+      </div>
+      <div class="record-count" aria-live="polite">
+        <span class="count-number" id="user-count">0</span>
+        <span class="count-label">registros</span>
+      </div>
+    </section>
+
+    <p class="message" id="message" role="status" aria-live="polite" hidden></p>
+
+    <section class="workspace" aria-label="Administración de usuarios">
+      <aside class="form-panel" aria-labelledby="form-title">
+        <div class="panel-heading">
+          <span class="section-index" id="form-index">01</span>
+          <h2 id="form-title">Nuevo usuario</h2>
+        </div>
+        <form id="user-form">
+          <label for="usu_usuario">Usuario</label>
+          <input id="usu_usuario" name="usu_usuario" type="text" maxlength="50" autocomplete="username" placeholder="ej. mlopez" required>
+
+          <label for="usu_nombre">Nombre</label>
+          <input id="usu_nombre" name="usu_nombre" type="text" maxlength="50" autocomplete="given-name" placeholder="ej. Martina" required>
+
+          <label for="usu_apellido">Apellido</label>
+          <input id="usu_apellido" name="usu_apellido" type="text" maxlength="50" autocomplete="family-name" placeholder="ej. López" required>
+
+          <div class="form-actions">
+            <button class="button button-primary" id="submit-button" type="submit">Guardar usuario</button>
+            <button class="button button-quiet" id="cancel-button" type="button" hidden>Cancelar</button>
+          </div>
+        </form>
+        <p class="form-footnote"><span aria-hidden="true">*</span> Todos los campos son obligatorios.</p>
+      </aside>
+
+      <section class="table-panel" aria-labelledby="table-title">
+        <div class="table-toolbar">
+          <div class="table-title-wrap">
+            <span class="section-index">02</span>
+            <h2 id="table-title">Directorio</h2>
+          </div>
+          <label class="search-box" for="search-input">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.8" cy="8.8" r="5.8"></circle><path d="m13.2 13.2 4 4"></path></svg>
+            <input id="search-input" type="search" placeholder="Buscar usuario o nombre" autocomplete="off">
+          </label>
+        </div>
+
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col"><span class="visually-hidden">Acciones</span></th>
+              </tr>
+            </thead>
+            <tbody id="users-table-body">
+              <tr><td class="table-state" colspan="5">Cargando usuarios...</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-footer"><span id="table-summary">Mostrando usuarios</span><span class="table-footer-mark">J6A</span></div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
